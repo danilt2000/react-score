@@ -1,43 +1,44 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import { GetHeroesCount } from './utils/data'; 
+import { GetHeroesCount } from './utils/dataHeroes.js';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import heroes from './data/heroes.json';
 
 import Card from './components/Card';
 
+function MainComponent() {
 
+  const heroesCount = GetHeroesCount();
 
+  return (
+    <React.StrictMode>
+      <div className="container">
+        <div className="row mt-4">
+          {Array.from({ length: heroesCount }, (_, index) => (
+            <div className="col-3  mb-4" key={index}>
+              <Card
+                name={heroes[index].name}
+                universe={heroes[index].universe}
+                alterego={heroes[index].alterego}
+                friends={heroes[index].friends}
+                superpowers={heroes[index].superpowers}
+                url={heroes[index].url}
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+    </React.StrictMode>
+  );
+}
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    
-    {/* <App /> */}
-    <div class="container">
-      <div class="row mt-4" >
-      {Array.from({length: 3}, (_, index) => (
-        <div class="col-3 ">
-          <Card 
-            name="Зимние ботинки"
-            universe="99"
-            alterego="Такие только у нас"
-            friends="https://shop/winter_boots.jpg"
-            superpowers="https://shop/winter_boots.jpg"
-            url="https://shop/winter_boots.jpg"
-            info="https://shop/winter_boots.jpg"
-            imgLink="https://n1s1.hsmedia.ru/13/a5/b2/13a5b2373d5e23489d9a4949ada5b927/547x397_0xac120002_8752067681540468870.jpg"
-          />
-        </div>
-  ))}
-       
-        
-      </div>
-    </div>
-  </React.StrictMode>
-);
-
+root.render(<MainComponent />);
+function SetHeroScore(heroName) {
+  
+}
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals

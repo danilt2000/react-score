@@ -1,14 +1,17 @@
+import data from '../data/heroes.json';
 
 
+export function GetHeroesCount() {
 
+    return data.length;
+}
 
-export async function GetHeroesCount() {
-    const response = await fetch('../data/heroes.json');
+export function IsHeroScoreRated(hero) {
 
-
-    const json = await response.json();
-
-
-    return json.length;
+    if (localStorage.getItem(hero) === null) {
+        return false;
+    }
+    
+    return true;
 }
 
