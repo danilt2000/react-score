@@ -1,32 +1,22 @@
 import './index.css';
-import { GetHeroesCount, IsHeroScoreRated } from '../../utils/dataHeroes.js';
-
 
 function Card(props) {
 
     const stars = [];
 
-
-    // if (!IsHeroScoreRated()) {
-    //     localStorage.setItem(props.name, 0);
-    // }
-
     for (let i = 1; i <= 5; i++) {
         if (localStorage.getItem(props.name) >= i ) {
             stars.push(
-            <span class="fa fa-star star-checked star-card col-2" data-score={props.name + '*Star*' + i} onClick={handleClick}></span>
+            <span class="fa fa-star star-checked star-card col-2" data-score={props.name + '|Star|' + i} onClick={handleClick}></span>
             );
         }
         else{
 
             stars.push(
-                <span class="fa fa-star  star-card col-2" data-score={props.name + '*Star*' + i} onClick={handleClick}></span>
+                <span class="fa fa-star  star-card col-2" data-score={props.name + '|Star|' + i} onClick={handleClick}></span>
             );
 
         }
-        console.log(localStorage.getItem(props.name))
-
-       
     }
 
     return (
@@ -51,18 +41,16 @@ function Card(props) {
     );
 
     function getFirstWord(str) {
-        const words = str.split('*');
+        const words = str.split('|');
         return words[0];
     }
 
     function getLastWord(str) {
-        const words = str.split('*');
+        const words = str.split('|');
         return words[words.length - 1];
       }
 
     function handleClick(event) {
-
-
         event.target.classList.add('star-checked');
 
         const heroScore = event.target.dataset.score;
@@ -73,9 +61,16 @@ function Card(props) {
 
         localStorage.setItem(hero, score);
 
-        const elements = document.querySelectorAll(`[data-score^="${hero}-"]`);
+        const elements = document.querySelectorAll('.star-card[data-score^="' + hero + '|Star|"]');
 
-
+        for (let i = 0; i <= 4; i++) {
+            if (score > i ) {
+                elements[i].classList.add('star-checked');
+            }
+            else{
+                elements[i].classList.remove('star-checked');
+            }
+        }
     }
 }
 
