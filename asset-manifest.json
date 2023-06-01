@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/react-score/static/css/main.073c9b0a.css",
-    "main.js": "/react-score/static/js/main.7facbb60.js",
+    "main.css": "/react-score/static/css/main.f8d77cbb.css",
+    "main.js": "/react-score/static/js/main.29c7d64c.js",
     "static/js/787.423d771b.chunk.js": "/react-score/static/js/787.423d771b.chunk.js",
     "static/media/logo.svg": "/react-score/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/react-score/index.html",
-    "main.073c9b0a.css.map": "/react-score/static/css/main.073c9b0a.css.map",
-    "main.7facbb60.js.map": "/react-score/static/js/main.7facbb60.js.map",
+    "main.f8d77cbb.css.map": "/react-score/static/css/main.f8d77cbb.css.map",
+    "main.29c7d64c.js.map": "/react-score/static/js/main.29c7d64c.js.map",
     "787.423d771b.chunk.js.map": "/react-score/static/js/787.423d771b.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.073c9b0a.css",
-    "static/js/main.7facbb60.js"
+    "static/css/main.f8d77cbb.css",
+    "static/js/main.29c7d64c.js"
   ]
 }
